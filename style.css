@@ -1,0 +1,21 @@
+body {
+	background: #30282A;
+}
+#reddits, #reddits li {
+	background: white;
+}
+#reddits li:FIRST-CHILD {
+	border-top-width: 1px; 
+}
+#reddits li {	
+	border: 1px solid #ddd;
+	border-top-width: 0;
+	padding: 2px;		
+}
+#reddits li div {
+	padding: 3px;
+}
+#reddits li .thumbnail {
+	padding: 2px;
+	margin: 0 5px 0 0;
+}

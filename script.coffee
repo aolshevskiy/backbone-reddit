@@ -80,6 +80,7 @@ $(window).scroll ->
 
 $('#subreddit').bind 'keydown', (event) ->
   return unless event.which == 13
+  $(this).blur()
   $('#reddits').empty()
   reddits.selected = 0
   reddits.reset []

@@ -12,10 +12,22 @@ body {
 	border-top-width: 0;
 	padding: 2px;		
 }
-#reddits li div {
+#reddits li div.link, #reddits li div.info {
 	padding: 3px;
+}
+#reddits li div.link {
+	padding-bottom: 0;
+}
+#reddits li div.info {
+	padding-top: 0;
 }
 #reddits li .thumbnail {
 	padding: 2px;
 	margin: 0 5px 0 0;
+}
+#reddits li div.row {
+	margin-left: 0;
+}
+#reddits li.active {
+	background: #EEE;
 }

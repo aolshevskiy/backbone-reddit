@@ -34,18 +34,19 @@ Reddits = Backbone.Collection.extend
 RedditView = Backbone.View.extend
   tagName: "li",
   template: _.template """
-  <div class="row">
-    <% if(thumbnail) { %>
-      <a href="<%= url %>" class="thumbnail span1">
-        <img src="<%= thumbnail %>" />
-      </a>
-    <% } %>
+  <% if(thumbnail) { %>
+    <a class="thumbnail-link" href="<%= url %>">
+      <img src="<%= thumbnail %>" />
+    </a>
+  <% } %>
+  <div class="caption">
     <div class="link">
       <a href="<%= url %>"><%= _.escape(title) %></a>
     </div>
+    <div class="info"><strong><%= score %></strong> <%= num_comments %> comments</div>
   </div>
-  <div class="info">Score <%= score %>, <%= num_comments %> comments</div>
   """
+  className: 'row'
   render: ->
     $(this.el).html(this.template(this.model.toJSON()))
     this
@@ -78,17 +79,32 @@ $(window).scroll ->
   if $(window).scrollTop() == $(document).height() - $(window).height()
     reddits.fetch add: true
 
+shortcuts = (event) ->
+  switch event.which
+    when 74 then reddits.next()
+    when 75 then reddits.prev()
+
+unbindShortcuts = ->
+  $(document).unbind 'keydown', shortcuts
+
+bindShortcuts = ->
+  $(document).bind 'keydown', shortcuts
+
+bindShortcuts()
+
 $('#subreddit').bind 'keydown', (event) ->
   return unless event.which == 13
   $(this).blur()
+  bindShortcuts()
   $('#reddits').empty()
   reddits.selected = 0
   reddits.reset []
   reddits.subreddit = $('#subreddit').val()
   fetchReddits()
 
-$(document).bind 'keydown', (event) ->
-  switch event.which
-    when 74 then reddits.next()
-    when 75 then reddits.prev()
+
+$('#subreddit').bind 'focus', unbindShortcuts
+$('#subreddit').unbind 'blur', bindShortcuts
+
+
 

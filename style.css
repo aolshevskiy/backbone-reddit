@@ -5,28 +5,28 @@ body {
 	background: white;
 }
 #reddits li:FIRST-CHILD {
-	border-top-width: 1px; 
+	border-top-width: 0;
 }
 #reddits li {	
-	border: 1px solid #ddd;
-	border-top-width: 0;
-	padding: 2px;		
+	border: solid #ddd;
+	border-width: 0;
+	border-top-width: 1px;
 }
-#reddits li div.link, #reddits li div.info {
-	padding: 3px;
+#reddits li a.thumbnail-link {
+	line-height: 0;
+	float: left;
+	margin-right: 5px;
 }
-#reddits li div.link {
-	padding-bottom: 0;
+#reddits li div.caption {
+	padding: 5px;
 }
-#reddits li div.info {
-	padding-top: 0;
-}
-#reddits li .thumbnail {
+.info strong {
+	background: #DDD;
 	padding: 2px;
-	margin: 0 5px 0 0;
+	color: #D9593D;
 }
-#reddits li div.row {
-	margin-left: 0;
+.info {
+	font-size: 8pt;
 }
 #reddits li.active {
 	background: #EEE;

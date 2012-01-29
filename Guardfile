@@ -3,5 +3,5 @@ guard 'coffeescript', :output=>'.' do
 end
 
 guard 'livereload', :apply_js_live => false do
-  watch('^.*.(js|css)$')
+  watch('^.*.(js|css|html)$')
 end

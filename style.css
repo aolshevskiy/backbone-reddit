@@ -35,3 +35,15 @@ body {
 	padding-left: 5px;
 	font-family: monospace;
 }
+.my-twitter {
+	float: left;
+	padding: 15px 10px 5px 0;
+	margin-left: -10px;
+}
+.my-twitter a:hover {
+	color: white;
+	text-decoration: none;
+}
+.twitter, .facebook, .plusone {
+	padding-top: 10px;
+}

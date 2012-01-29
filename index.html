@@ -6,6 +6,19 @@
 <title>Backbone Reddit</title>
 <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9918641-1']);
+  _gaq.push(['_setDomainName', 'none']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
 </head>
 <body>
 <div class="navbar navbar-static">
@@ -14,6 +27,9 @@
       <a class="brand" href="index.html">
   			Backbone Reddit
 			</a>
+			<div class="my-twitter">
+				by <a href="http://twitter.com/demonico">@demonico</a>
+			</div>
 			<ul class="nav">
 				<li class="dropdown">
 					<a href="#"
@@ -30,6 +46,18 @@
 					</ul>
 				</li>
 			</ul>
+			<ul class="nav pull-right">
+				<li class="twitter">
+					<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://siasia.github.com/backbone-reddit" data-text="Enhance your reddit experience" data-via="demonico">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				</li>
+				<li class="facebook">
+					<div class="fb-like" data-href="http://siasia.github.com/backbone-reddit" data-send="false" data-layout="button_count" data-width="110" data-show-faces="false"></div>
+				</li>
+				<li class="plusone">
+					<g:plusone size="medium" annotation="inline" width="120"></g:plusone>
+				</li>
+			</ul>
     </div>
   </div>	
 </div>
@@ -38,11 +66,26 @@
 <ul id="reddits" class="unstyled">	
 </ul>
 </div>
+<div id="fb-root"></div>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="jquery.scrollTo-1.4.2-min.js"></script>
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.2.2/underscore-min.js"></script>
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.5.3/backbone-min.js"></script>
 <script type="text/javascript" src="script.js"></script>
 <script type="text/javascript" src="bootstrap-dropdown.js"></script>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
 </body>
 </html>

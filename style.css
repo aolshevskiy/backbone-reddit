@@ -4,6 +4,9 @@ body {
 #reddits, #reddits li {
 	background: white;
 }
+#reddits {
+	margin-bottom: 0;
+}
 #reddits li:FIRST-CHILD {
 	border-top-width: 0;
 }
@@ -11,6 +14,9 @@ body {
 	border: solid #ddd;
 	border-width: 0;
 	border-top-width: 1px;
+}
+#reddits .row {
+	margin-left: 0;
 }
 #reddits li a.thumbnail-link {
 	line-height: 0;
@@ -46,4 +52,9 @@ body {
 }
 .twitter, .facebook, .plusone {
 	padding-top: 10px;
+}
+.spinner {
+	background: white;
+	text-align: center;
+	padding: 5px;
 }

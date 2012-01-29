@@ -74,16 +74,20 @@ fetchReddits = ->
       reddits.url = urlFunc
       reddits.fetch
         add: true
-        success: -> reddits.select()
+        success: ->
+          $('.spinner').hide()
+          reddits.select()
 
 fetchReddits()
 
 $(window).scroll ->
   if $(window).scrollTop() == $(document).height() - $(window).height()
-    reddits.fetch add: true
+    $('.spinner').show()
+    reddits.fetch
+      add: true
+      success: -> $('.spinner').hide()
 
 shortcuts = (event) ->
-  console.log event.which
   switch event.which
     when 74 then reddits.next()
     when 79 then reddits.open()
@@ -105,6 +109,7 @@ $('#subreddit').bind 'keydown', (event) ->
   reddits.selected = 0
   reddits.reset []
   reddits.subreddit = $('#subreddit').val()
+  $('.spinner').show()
   fetchReddits()
 
 $('#subreddit').bind 'focus', unbindShortcuts

@@ -16,13 +16,16 @@ Reddits = Backbone.Collection.extend
   deselect: -> $(this.at(this.selected).view.el).removeClass('active')
   select: ->
     $(this.at(this.selected).view.el).addClass('active')
-    settings =
     $.scrollTo $(this.at(this.selected).view.el),
       offset: {left: 0, top: -300}
   next: ->
     this.deselect()
     this.selected += 1
     this.select()
+  open: ->
+    window.open(this.at(this.selected).toJSON().url)
+  comments: ->
+    window.open("http://www.reddit.com/#{this.at(this.selected).toJSON().permalink}")
   prev: ->
     return if this.selected == 0
     this.deselect()
@@ -43,7 +46,7 @@ RedditView = Backbone.View.extend
     <div class="link">
       <a href="<%= url %>"><%= _.escape(title) %></a>
     </div>
-    <div class="info"><strong><%= score %></strong> <%= num_comments %> comments</div>
+    <div class="info"><strong><%= score %></strong> <a href="http://www.reddit.com/<%= permalink %>"><%= num_comments %> comments</a></div>
   </div>
   """
   className: 'row'
@@ -80,8 +83,11 @@ $(window).scroll ->
     reddits.fetch add: true
 
 shortcuts = (event) ->
+  console.log event.which
   switch event.which
     when 74 then reddits.next()
+    when 79 then reddits.open()
+    when 67 then reddits.comments()
     when 75 then reddits.prev()
 
 unbindShortcuts = ->
@@ -95,16 +101,14 @@ bindShortcuts()
 $('#subreddit').bind 'keydown', (event) ->
   return unless event.which == 13
   $(this).blur()
-  bindShortcuts()
   $('#reddits').empty()
   reddits.selected = 0
   reddits.reset []
   reddits.subreddit = $('#subreddit').val()
   fetchReddits()
 
-
 $('#subreddit').bind 'focus', unbindShortcuts
-$('#subreddit').unbind 'blur', bindShortcuts
+$('#subreddit').bind 'blur', bindShortcuts
 
 
 

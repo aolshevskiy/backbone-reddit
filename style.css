@@ -31,3 +31,7 @@ body {
 #reddits li.active {
 	background: #EEE;
 }
+.dropdown-menu li {
+	padding-left: 5px;
+	font-family: monospace;
+}

@@ -18,7 +18,7 @@ body {
 #reddits .row {
 	margin-left: 0;
 }
-#reddits .link a:visited {
+#reddits a:visited {
 	color: #555;
 }
 #reddits li a.thumbnail-link {

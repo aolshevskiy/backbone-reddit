@@ -100,6 +100,21 @@ unbindShortcuts = ->
 bindShortcuts = ->
   $(document).bind 'keydown', shortcuts
 
+handleLink = (e) ->
+  currentTarget = $(e.currentTarget)[0]
+  link = currentTarget.href
+  if link.match /\.jpg|.png/
+    e.preventDefault()
+    openImageInModal link, currentTarget
+
+openImageInModal = (link, currentTarget)->
+  modal = $('#imageModal')
+  headerText = $(currentTarget).next('.caption').find('a').text()
+
+  modal.modal show: true
+  modal.find('img').attr 'src', link
+  modal.find('h3').text headerText
+
 bindShortcuts()
 
 $('#subreddit').bind 'keydown', (event) ->
@@ -114,6 +129,4 @@ $('#subreddit').bind 'keydown', (event) ->
 
 $('#subreddit').bind 'focus', unbindShortcuts
 $('#subreddit').bind 'blur', bindShortcuts
-
-
-
+$(document).on 'click', '.thumbnail-link, a', handleLink

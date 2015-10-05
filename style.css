@@ -10,7 +10,7 @@ body {
 #reddits li:FIRST-CHILD {
 	border-top-width: 0;
 }
-#reddits li {	
+#reddits li {
 	border: solid #ddd;
 	border-width: 0;
 	border-top-width: 1px;
@@ -60,4 +60,8 @@ body {
 	background: white;
 	text-align: center;
 	padding: 5px;
+}
+.modal.fade.in {
+	max-height: 800px;
+	top: 40%;
 }
